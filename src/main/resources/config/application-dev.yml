@@ -33,7 +33,7 @@ jndiConfig:
       auth: Container
       type: javax.sql.DataSource
       driverClassName: com.sybase.jdbc4.jdbc.SybDriver
-      url: jdbc:sybase:Tds:10.97.111.70:4101?ServiceName=db_iws_ref
+      url: jdbc:sybase:Tds:127.0.0.1:4101?ServiceName=db_iws_ref
       username: hdev198
       password: Monjan123@
       maxActive: 100
@@ -43,7 +43,7 @@ jndiConfig:
       auth: Container
       type: javax.sql.DataSource
       driverClassName: com.sybase.jdbc4.jdbc.SybDriver
-      url: jdbc:sybase:Tds:10.97.111.70:4101?ServiceName=db_claims
+      url: jdbc:sybase:Tds:127.0.0.1:4101?ServiceName=db_claims
       username: hdev198
       password: Monjan123@
       maxActive: 100
