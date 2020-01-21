@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frank.db.dao.FdHNWFormMapper">
+  <resultMap id="resultMap" type="com.frank.db.domain.FdHNWForm">
+    <id column="S_ROWID" jdbcType="DECIMAL" property="S_ROWID" />
+    <result column="FOLDER_NM" jdbcType="NVARCHAR" property="FOLDER_NM" />
+    <result column="FORM_NM" jdbcType="NVARCHAR" property="FORM_NM" />
+    <result column="FUNC_CODE" jdbcType="NVARCHAR" property="FUNC_CODE" />
+    <result column="SUB_FOLDER_NM" jdbcType="NVARCHAR" property="SUB_FOLDER_NM" />
+    <result column="FORM_ID" jdbcType="NVARCHAR" property="FORM_ID" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    S_ROWID, FOLDER_NM, FORM_NM, FUNC_CODE, SUB_FOLDER_NM,FORM_ID
+  </sql>
+   
+
+  
+	 <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="resultMap">
+		 select
+		 <include refid="Base_Column_List" />
+		 from FD_HNW_FORM
+		 where S_ROWID = #{s_ROWID,jdbcType=DECIMAL}
+	 </select>
+</mapper>

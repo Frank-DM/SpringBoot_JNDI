@@ -1,0 +1,52 @@
+server:
+  port: 8094
+spring:
+  #缓存设置
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:config/ehcache.xml
+  datasource:
+    #url: jdbc:sqlserver://HKGABDWSQL010:1433;DatabaseName=db_sonora;integratedSecurity=false
+    #DEV
+    url: jdbc:sqlserver://10.72.3.66:1433;DatabaseName=SONORA;integratedSecurity=false
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: Sonora
+    password: sonora
+    initial-size: 1
+    min-idle: 1
+    max-active: 20
+    test-on-borrow: true
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1 FROM DUAL
+    test-While-Idle: true
+    test-on-return: false
+    pool-prepared-statements: false
+    max-pool-prepared-statement-per-connection-size: 20
+    filters: stat,wall,log4j,config
+
+# DEV环境才会加载
+DataSource:
+  jndiName:  jdbc/Sybase_iws_ref
+  auth: Container
+  type: javax.sql.DataSource
+  driverClassName: com.sybase.jdbc4.jdbc.SybDriver
+  url: jdbc:sybase:Tds:10.97.111.70:4101?ServiceName=db_iws_ref
+  username: hdev198
+  password: Monjan123@
+  maxActive: 100
+  maxIdle: 30
+  maxWait: 10000
+
+mybatis:
+  type-aliases-package: com.neo.entity
+  #配置扫描实体的包，一般配置在domain
+  config-locations: classpath:mybatis/mybatis-config.xml
+  #------扫描配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
+JNDI:
+  Sybase:
+    CLAIMS: java:comp/env/jdbc/Sybase_claims
+    DB_IWS_REF: java:comp/env/jdbc/Sybase_iws_ref
